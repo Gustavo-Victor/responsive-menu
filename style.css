@@ -1,0 +1,181 @@
+/*reset*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+ul{
+    list-style: none;
+}
+
+/*cabeçalho*/
+header#cabecalho-principal{
+    background-color: black;
+    padding: 2%;
+    width: 100vw;
+}
+
+/*nav*/
+nav#menu-navegacao{
+    display: flex;    
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*cada link*/
+nav#menu-navegacao a{
+    color: white;
+}
+
+/*logo*/
+nav#menu-navegacao div#logo a{
+    text-transform: uppercase;
+}
+
+/*link e botões ao passar mouse por cima*/
+nav#menu-navegacao a:hover, div#logo a:hover, .fa-bars:hover{
+    color: rgba(255,255,255,0.5);
+}
+
+/*ul principal*/
+ul#ul-principal{
+    display: flex;   
+    gap: 1.4rem;
+}
+
+/*ul secundário*/
+ul.ul-secundario{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+    background-color: black;
+    position: absolute;
+    top: 3rem;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 7rem;
+    transition: opacity 200ms ease-in-out;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/*li secundário*/
+ul.ul-secundario li{
+    padding: 0.5rem ;
+    transition: background-color 200ms ease-in-out;
+}
+
+/*li secundário quando tá ativo*/
+ul.ul-secundario.active{
+    opacity: 1;
+    visibility: visible;
+    display: flex;
+}
+
+/*ícone menu*/
+.fa-bars{
+    color:white;
+    font-size: 20px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+}
+
+/*estilos para quando tela for menor ou igual a 700px*/
+@media (max-width: 700px){
+    /*logo*/
+    #logo{
+        margin-top: 2%;
+   }
+
+    /*nav e ul principal*/
+    nav#menu-navegacao, ul#ul-principal{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /*nav*/
+    nav#menu-navegacao{
+        align-items: flex-start;
+    }
+
+    /*ul principal*/
+    ul#ul-principal {
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        height: 0;
+        overflow: hidden;
+        margin: 2% 0;
+        padding: 0;
+    }
+
+    /*quando a lista principal estiver com classe active*/
+    ul#ul-principal.active{
+        flex: 1;
+    }
+
+    /*itens da lista principal*/
+    ul#ul-principal li{
+        width: 100%;
+        margin: 0;        
+        padding: 0;        
+    }
+
+    /*lista secundária*/
+    ul.ul-secundario{
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 0.4rem;
+        text-align: center;
+        padding: 2% 0;
+        margin: 2% auto 0 auto;
+        display: none;
+        visibility: hidden;
+        opacity: 0;        
+    }
+
+    /*quando lista principal estiver ativa aplicar esses estilos para a lista secundária*/
+    ul#ul-principal.active ul.ul-secundario{
+        margin-top: -50px;
+        margin-bottom: 30px;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /*cada item da lista secundária*/
+    ul.ul-secundario li{
+        margin: 0;
+    }
+
+    /*deixar visível o ícone de barra do menu em 700px pra menos*/
+    .fa-bars{
+        display: block;        
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+
+}
+
+
